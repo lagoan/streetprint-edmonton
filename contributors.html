@@ -1,0 +1,14 @@
+<div class="row">
+	<div class="medium-12 column">
+		<h2>Current Research Team</h2>
+		<hr/>
+		<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+			{% for contributor in contributors %}
+				<li>
+					{{contributor.avatar | image_tag: project, 'small'}}
+		   		 <b>{{ contributor.name }}</b>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</div>
