@@ -1,0 +1,31 @@
+
+<div class="cards">
+
+	<div class="card card-wide"> 
+		<p class="lead">Reports</p>
+
+		<p>A report is a multimedia description of print and reading based on field research, including collection, observation, photography, and interviews.</p>
+	</div>
+
+{%for report in reports%}
+	{% if report.cover_image == "" %}
+	<div class="card">
+		<a class="whole-tile" href="{{reports_path | append: "/" | append: report.id}}">		
+		<span class="arrow">→</span>
+		</a>
+		<p class="smaller-text sans-serif">REPORT</p>
+		<h3>{{report.name | link_to_show: project, report}}</h3>
+		<i class="fa fa-sticky-note-o fa-4x card-symbol"></i>
+	</div>
+	{% else %}
+		<a href="{{reports_path | append: "/" | append: report.id}}">
+		<div class="fill-link slip card" style="background: 
+		linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+		url('{{report.cover_image}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+		<div class='card-label'><span>{{report.name}}</span><i>→</i></div>
+		</div>
+		</a>
+	{% endif %}
+{%endfor%}
+
+</div>

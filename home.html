@@ -1,0 +1,262 @@
+<script>
+/**
+ * sliphover v2.0.5
+ * require jquery 1.7+
+ * wayou June 24, 2014,
+ * MIT License
+ * for more info pls visit :https://github.com/wayou/SlipHover
+ */
+/*
+$(function(){
+	!function(e,t){function i(t,i){this.element=t,this.settings=e.extend({},r,i),this._defaults=r,this._name=o,this.version="v2.0.5",this.init()}var o="sliphover",r={target:"img",caption:"title",duration:"fast",fontColor:"#fff",textAlign:"center",verticalMiddle:!0,backgroundColor:"rgba(0,0,0,.7)",backgroundColorAttr:null,reverse:!1,height:"100%",withLink:!0};i.prototype={init:function(){if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)){var t=this,i=this.settings.target;e(this.element).off("mouseenter.sliphover",i).on("mouseenter.sliphover",i,function(){var i=e(this),o=t.createContainer(i);o.off("mouseenter.sliphover mouseleave.sliphover").on("mouseenter.sliphover mouseleave.sliphover",function(r){var n=t.getDirection(e(this),r);if(n=t.settings.reverse?n=(n+2)%4:n,"mouseenter"===r.type){var s=o.find(".sliphover-overlay");s.length||(s=t.createOverlay(t,n,i),e(this).html(s)),t.slideIn(t,s)}else t.removeOverlay(t,e(this),n)})})}},createContainer:function(t){var i=t.offset().top,o=t.offset().left,r=t.outerWidth(),n=t.outerHeight();zIndex=t.css("z-index");var s=e("<div>",{"class":"sliphover-container"}).css({width:r,height:n,position:"absolute",overflow:"hidden",top:i,left:o,borderRadius:t.css("border-radius"),zIndex:zIndex==+zIndex?zIndex+1:999});return e("body").append(s),s},createOverlay:function(i,o,r){var n,s,a,l,h,c;switch(o){case 0:s=0,n="100%";break;case 1:s="100%",n=0;break;case 2:s=0,n="-100%";break;case 3:s="-100%",n=0;break;default:t.console.error("error when get direction of the mouse")}if(h=i.settings.verticalMiddle?e("<div>").css({display:"table-cell",verticalAlign:"middle"}).html(r.attr(i.settings.caption)):r.attr(i.settings.caption),c=r.parent("a"),c.length&&i.settings.withLink){var d=c.attr("href"),f=c.attr("target");a=e("<a>",{"class":"sliphover-overlay",href:d||"#",target:f||"_self"}).css({textDecoration:"none"})}else a=e("<div>",{"class":"sliphover-overlay"});return l=i.settings.backgroundColorAttr?r.attr(i.settings.backgroundColorAttr):i.settings.backgroundColor,a.css({width:"100%",height:i.settings.height,position:"absolute",left:s,bottom:n,display:i.settings.verticalMiddle?"table":"inline",textAlign:i.settings.textAlign,color:i.settings.fontColor,backgroundColor:l}).html(h),a},slideIn:function(e,t){t.stop().animate({left:0,bottom:0},e.settings.duration)},removeOverlay:function(e,i,o){var r,n=i.find(".sliphover-overlay");switch(o){case 0:r={bottom:"100%",left:0};break;case 1:r={bottom:0,left:"100%"};break;case 2:r={bottom:"-100%",left:0};break;case 3:r={bottom:0,left:"-100%"};break;default:t.console.error("error when get direction of the mouse")}n.stop().animate(r,e.settings.duration,function(){i.remove()})},getDirection:function(e,t){var i=e.width(),o=e.height(),r=(t.pageX-e.offset().left-i/2)*(i>o?o/i:1),n=(t.pageY-e.offset().top-o/2)*(o>i?i/o:1),s=Math.round((Math.atan2(n,r)*(180/Math.PI)+180)/90+3)%4;return s}},e.fn[o]=function(t){return this.each(function(){e.data(this,"plugin_"+o)||e.data(this,"plugin_"+o,new i(this,t))}),this}}(jQuery,window,document);
+
+	$(".cards").sliphover({
+		"target": ".slip",
+		"verticalMiddle": false,
+		"textAlign": "left"
+	});
+});
+
+</script>
+
+<div class="cards">
+  	<div class="card card-header-container"> 
+  		<div class="card-header-top">
+  			<div class="row">
+  				<div class="medium-8 columns">
+  					<p class="smaller-text sans-serif">{{project.name | upcase}}</p>	
+					<p class="lead">{{project.introduction}}</p>
+					<hr />
+					<div class="row">
+						<div class="medium-9 columns">
+							<!-- {{search_bar}} -->
+<form id="header-search-form" action="/test/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+      <div class="row collapse postfix-round">
+        <div class="small-9 columns">
+          <input type="text" name="search" id="search" placeholder="Search">
+        </div>
+        <div class="small-3 columns">
+          <span class="postfix button" id="header-search-submit"><i class="fa fa-search"></i></span>
+        </div>
+      </div>
+</form>
+
+<!-- <a id="header-search-submit" class="button postfix" href="#"><i class="fa fa-search"></i></a> -->
+<!-- 							<form id="header-search-form" action="/test/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+								<div class="row collapse">
+									<div class="small-9 columns">
+										<input type="text" name="search" id="search" placeholder="Search">
+									</div>
+									<div class="small-2 columns">
+										<a id="header-search-submit" class="button postfix" href="#"><i class="fa fa-search"></i></a>
+									</div>
+								</div>
+							</form> -->
+							<script>
+							  $('#header-search-submit').click(function(){
+							    $('#header-search-form').submit();
+							  });
+							</script>
+						</div>
+						<div class="medium-3 columns header-nav-section">
+							<a class="button browse-button" data-dropdown="drop1" aria-controls="drop1" aria-expanded="false">Browse</a>
+							<ul id="drop1" class="f-dropdown" data-dropdown-content class="dropdown" aria-autoclose="false">
+				                <li><a href="{{items_path}}">Items</a></li>
+				                <li><a href="{{reports_path}}">Reports</a></li>
+				                <li><a href="{{narratives_path}}">Narratives</a></li>
+				                <li><a href="{{people_path}}">People</a></li>
+				                <li><a href="{{places_path}}">Places</a></li>
+				                <li><a href="{{news_path}}">News</a></li>
+				                <li><a href="{{home_path}}/contributors">Contributors</a></li>
+				            </ul>
+						</div>
+					</div>	
+						
+
+  				</div>
+  				<div class="medium-4 columns">
+  					<p class="smaller-text sans-serif">WHAT'S NEW</p>	
+					<ul>
+					{%for report in last_reports limit: 3%}
+						<li>
+						{{report.name | link_to_show: project, report}}
+						</li>
+					{%endfor%}
+					</ul>					
+					
+					<div class="smaller-text sans-serif follow-title">						
+						FOLLOW
+					</div>
+					<ul class="follow-list">
+						<li>
+							<a href="https://www.facebook.com/PopPrintEDM">
+								<i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>		
+							</a>
+						</li>
+						<li>
+							<a href="https://twitter.com/PopularPrintEDM">
+								<i class="fa fa-twitter-square fa-2x" aria-hidden="true"></i>		
+							</a>
+						</li>
+					</ul>
+
+					
+					
+  				</div>
+  			</div>
+  		</div>
+  		<a href='{{narratives_path | append: "/" | append: featured_narratives[0].id}}'>
+  		<div class="card-header-bottom-left" style="background: 
+			linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+			url('{{featured_narratives[0].cover_image}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+			<div class="bottom">
+				<div class="card-label">{{featured_narratives[0].name}}</div>
+				<div class="description-text">{{featured_narratives[0].description | truncatewords: 25}}</div>
+			</div>
+		</div>
+		</a>
+
+  		<div class="card-header-bottom-right">
+  			{%for narrative in featured_narratives limit: 3 offset: 1%}
+  			<a href='{{narratives_path | append: "/" | append: narrative.id}}'>
+	  			<div class="row">
+	  				<div class="medium-3 columns">
+	  					<div class="cover-image" style="display: block; width:100px; height:50px; background: url('{{narrative.cover_image}}');">
+	  					</div>	
+	  				</div>
+	  				<div class="medium-9 columns">
+	  					<div>{{narrative.name}}</div>
+	  					<div class="description-text">{{narrative.description | truncate: 100}}</div>
+	  				</div>
+	  			</div>
+  			</a>
+  			{%endfor%}
+  		</div>
+
+<!--  	
+		<p class="smaller-text sans-serif">{{project.name | upcase}}</p>	
+		<p class="lead">{{project.introduction}}</p>
+
+		<hr />
+
+	<div class="row">
+		<div class="medium-6 columns">
+			<div class="small-text">
+				<p class="smaller-text sans-serif">LATEST NARRATIVES</p>
+				<ul>
+				{%for narrative in last_narratives limit: 3%}
+					<li>
+					{{narrative.name | link_to_show: project, narrative}}
+					</li>
+				{%endfor%}
+				</ul>
+				<p class="smaller-text sans-serif">LATEST REPORTS</p>
+				<ul>
+				{%for report in last_reports limit: 3%}
+					<li>
+					{{report.name | link_to_show: project, report}}
+					</li>
+				{%endfor%}
+				</ul>
+			</div>
+		</div>
+		<div class="medium-6 columns">
+		<div class="space-bottom">
+			<form id="search-form" action="/test/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+				<div class="row collapse">
+					<div class="medium-10 columns">
+						<input type="text" name="search" id="search" placeholder="Search">
+					</div>
+					<div class="medium-2 columns">
+						<a id="search-submit" href="#"><i class="fa fa-search aligned-search-icon"></i></a>
+					</div>
+				</div>
+			</form>
+		</div>
+
+		<div class="small-text">
+			<p class="smaller-text sans-serif">Browse</p>
+			<ul>
+                <li><a href="{{items_path}}">Items</a></li>
+                <li><a href="{{reports_path}}">Reports</a></li>
+                <li><a href="{{narratives_path}}">Narratives</a></li>
+                <li><a href="{{people_path}}">People</a></li>
+                <li><a href="{{places_path}}">Places</a></li>
+                <li><a href="{{news_path}}">News</a></li>
+                <li><a href="{{home_path}}/contributors">Contributors</a></li>
+			</ul>
+		</div>
+		</div>
+	</div>
+
+-->
+	</div>
+
+<!--
+{%for narrative in featured_narratives limit: 4%}
+	{% if narrative.cover_image == "" %}
+	<div class="card">
+		<a class="whole-tile" href="{{narratives_path | append: "/" | append: narrative.id}}">		
+		<span class="arrow">→</span>
+		</a>
+		<p class="smaller-text sans-serif">NARRATIVE</p>
+    <h3>{{narrative.name | link_to_show: project, narrative}}</h3>
+		<i class="fa fa-newspaper-o fa-4x card-symbol"></i>
+
+	</div>
+	{% else %}
+		<a href="{{narratives_path | append: "/" | append: narrative.id}}">
+		<div class="fill-link slip card" title="<div class='card-label'><p class='smaller-text sans-serif'>NARRATIVE</p><span>{{narrative.name}}</span><i>→</i></div>" style="background: url('{{narrative.cover_image}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+		</div>
+		</a>
+	{% endif %}
+{%endfor%}
+-->
+
+{%for report in featured_reports limit: 12%}
+	{% if report.cover_image == "" %}
+	<div class="card">
+		<a class="whole-tile" href="{{reports_path | append: "/" | append: report.id}}">		
+		<span class="arrow">→</span>
+		</a>
+		<h3>{{report.name | link_to_show: project, report}}</h3>
+		<i class="fa fa-sticky-note-o fa-4x card-symbol"></i>
+	</div>
+	{% else %}
+		<a href="{{reports_path | append: "/" | append: report.id}}">
+		<div class="fill-link slip card" style="background: 
+		linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+		url('{{report.cover_image}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+		<div class='card-label'><span>{{report.name}}</span><i>→</i></div>
+		</div>
+		</a>
+	{% endif %}
+{%endfor%}
+
+<!--
+
+{%for report in featured_reports limit: 12%}
+	{% if report.cover_image == "" %}
+	<div class="card">
+		<a class="whole-tile" href="{{reports_path | append: "/" | append: report.id}}">		
+		<span class="arrow">→</span>
+		</a>
+		<p class="smaller-text sans-serif">REPORT</p>
+    <h3>{{report.name | link_to_show: project, report}}</h3>
+		<i class="fa fa-sticky-note-o fa-4x card-symbol"></i>
+
+	</div>
+	{% else %}
+		<a href="{{reports_path | append: "/" | append: report.id}}">
+		<div class="fill-link slip card" title="<div class='card-label'><p class='smaller-text sans-serif'>REPORT</p><span>{{report.name}}</span><i>→</i></div>" style="background: url('{{report.cover_image}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+		</div>
+		</a>
+	{% endif %}
+{%endfor%}
+-->
+
+
+
+</div>
+</div>
+

@@ -1,0 +1,52 @@
+  <div class="row">
+    <h1>{{narrative.name}}</h1>
+    <hr>
+  </div>
+
+<div class="row">
+  <div class="medium-9 columns">
+    <h3>Introduction</h3>
+    <div>
+      {{narrative.introduction}}
+    </div>
+    <h3>Conclusion</h3>
+    <div>
+      {{narrative.conclusion}}
+    </div>
+    {% if narrative.reports.size > 1%}
+    <h3>Reports</h3>
+    <div>
+      <ul>
+      {%for report in narrative.reports %}
+        <li>{{report.name | link_to_show: project, report}}</li>
+      {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {% if narrative.images.size > 1%}
+    <h3>Images</h3>
+    <div>
+    {% for image in narrative.images %}
+      {{image | image_tag: project}}
+    {% endfor %}
+    </div>
+    {% endif %}
+
+  </div>
+  <div class="medium-3 columns">    
+    {% if narrative.cover_image != "" %}
+    <div class="cover-image center " style="display: block; width:200px; height:200px; background: url('{{narrative.cover_image}}');">
+    </div>    
+    {% endif %}
+    <div>
+      {{narrative.introduction | truncatewords: 20}}
+    </div>
+  </div>
+
+	    
+    
+
+  </div>
+
+

@@ -1,0 +1,29 @@
+<h2 style="text-align:center;color:#999999">Some Pretty Great Stuff</h2>
+<div class='row'>
+  <div class='large-12 columns panel filter-panel radius'>
+    {{tag_filters}}
+    {{category_filters}}
+  </div>
+  <div class='large-12 columns'>
+		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
+			{% for item in items %}
+				<li>
+					<div>
+						{% if item.images.first && item.images.first != "" %}
+							{{ item.images.first | image_tag: project, "thumb" }}
+						{% else %}
+							{{'test.png' | image_tag: project, 'thumb' }}
+						{% endif %}
+					</div>
+					<div>{{item.name | link_to_show: project, item}}</div>
+					--
+					<div>{{item.inspect}}</div>
+				</li>
+			{% endfor %}
+		</ul>
+  </div>
+</div>
+
+
+
+

@@ -1,0 +1,387 @@
+
+html, body {
+  background-color: #F5F5F5;
+  font-family: 'Merriweather', serif !important;
+  color: #2B2B2B;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Merriweather', serif !important;
+  color: #2b2b2b;
+}
+
+h1 {
+    font-size: 50px;
+    line-height: 63px;
+}
+
+h2 {
+    font-size: 48px;
+    line-height: 60px;
+}
+
+h3 {
+    font-size: 24px;
+    line-height: 31px;
+}
+
+h4 {
+    font-size: 20px;
+    line-height: 27px;
+}
+
+h5 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+h6 {
+  font-size:16px; 
+  line-height:20px;
+}
+
+.name * {
+  color: #2B2B2B !important;
+}
+
+hr {
+  border: solid #CCCCCC;
+  border-width: 1px 0 0;
+}
+
+ul, ol, dl {
+  margin-bottom: 2rem;
+}
+
+#content {
+  width: 100%;
+  margin: 0 auto;
+  padding: 33px 0px 20px 0px;;
+  background: #f5f5f5;
+}
+
+#header {
+  padding: 23px 45px;
+}
+
+a:link, 
+a:visited, 
+a:hover, 
+a:active {
+  color: #2B2B2B;
+}
+
+p.lead {
+  line-height: 40px;
+  font-size: 30px;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+.small-text * {
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.smaller-text {
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: .75rem;
+  font-family: 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.cards a:link, 
+.cards a:visited, 
+.cards a:hover, 
+.cards a:active {
+  text-decoration: underline;
+}
+
+.whole-tile {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 55;
+}
+.serif {
+  font-family: 'Merriweather', serif;
+}
+
+.sans-serif {
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1250px;  
+}
+
+@media screen and (max-width: 1300px) and (min-width: 960px) {
+  .container {
+    max-width: 960px; 
+  }
+}
+
+@media screen and (max-width: 959px) and (min-width: 0px) {
+  .container {
+    max-width: 640px; 
+  }
+}
+
+.cards {
+  list-style-type: none;
+  margin: 0;
+}
+
+.card-header-container {
+  width: 910px !important;
+  height: 560px !important;
+  padding: 0px !important;
+  background-color: #F5F5F5 !important;
+}
+
+.card-header-top {
+  height: 270px !important;
+  width: 910px !important;
+  background-color: #FFFFFF !important;
+  padding: 20px 10px;
+}
+
+.card-header-bottom-left {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 290px;
+  height: 270px !important;
+  background-color: #FFFFFF !important;
+  padding: 20px 20px;
+  color: #FFFFFF;
+}
+
+.card-header-bottom-right {
+  width: 600px !important;  
+  height: 270px !important;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  background-color: #FFFFFF !important;
+  padding: 20px 20px;
+}
+
+
+.card-big ul li {
+  line-height: 24px;
+}
+
+.card-big ul {
+  list-style: none;
+}
+
+.card-wide {
+  width: 600px !important;
+  height: 270px !important;
+  padding: 45px !important;
+  background-color: #FFFFFF !important;
+}
+
+.card-full {
+  background-color: #FFFFFF !important; 
+  padding: 45px !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.card {
+  background-color: #E9E9E9;
+  width: 290px;
+  height: 270px;
+  display: inline-block;
+  margin-bottom: 20px;
+  float: left;
+  overflow: hidden;
+  padding: 30px 25px;
+}
+
+.card-symbol {
+  position: absolute;
+  bottom: 25px;
+}
+
+a:hover span.arrow {
+    padding-right: 0;
+    -webkit-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+    opacity: 1;
+}
+
+span.arrow {
+    font: 20px 'Open Sans', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    float: right;
+    padding-bottom: 13px;
+    padding-right: 15px;
+    -webkit-transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -o-transition: all 0.2s ease 0s;
+    transition: all 0.2s ease 0s;
+    margin-top: -4px;
+    display: inline-block;
+    opacity: 0;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
+.space-bottom {
+  margin-bottom: 20px;
+}
+
+.card-label {
+  color: #FFFFFF;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.card-label span {
+  position: absolute;
+  width: 200px;
+  bottom: 30px;
+  left: 30px;
+}
+
+.card-label i {
+  position: absolute;
+  display: block;
+  right: 20px;
+  bottom: 30px;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    left: 0;
+    border-bottom: 1px solid #CCCCCC;
+    height: 100px;
+    background-color: #f5f5f5;
+    padding: 26px 30px 0px 30px;
+}
+
+.top-bar-section ul {
+  background-color: #F5F5F5;
+}
+
+
+.top-bar-section ul li > a {
+  color: #555 !important;
+}
+
+.top-bar .name h1 a {
+   font-weight: 100 !important;  
+}
+
+.top-bar {  
+  background-color: #F5F5F5 !important;
+}
+
+.top-bar .name a:hover {
+  background-color: #F5F5F5 !important;
+}
+
+.top-bar .name * {
+  font-size: 38px;
+  height: 2.8125rem;
+  margin: 0;
+  font-style: italic;
+}
+
+.inside-bar .top-bar {
+  background-color: #FFFFFF !important;
+}
+
+.inside-bar .top-bar .top-bar-section ul {
+  background-color: #FFFFFF !important;
+}
+
+.inside-bar {
+  margin-bottom: 20px;
+}
+
+.aligned-search-icon {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+input[type="text"] {
+  font-family: sans-serif;  
+}
+
+.footer {
+  height: 100px !important;
+  padding: 30px !important;
+}
+
+.cover-image {
+  background-repeat: no-repeat !important; 
+  background-position: center !important; 
+  background-size: cover !important;
+}
+
+.header-nav-section {
+
+}
+
+.header-nav-section ul li {
+    display: inline;
+}
+
+.browse-button {
+  font-size: 0.875rem;
+  line-height: 0.350rem;
+}
+
+.description-text * {
+  font-size: 0.8em;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0px;
+}
+
+.follow-list {
+}
+
+.follow-list li {
+  display: inline;
+  padding: 0px 5px;
+}
+
+.follow-list li a {
+    text-decoration: none !important;
+}
+
+.card-header-bottom-right .row {
+  height: 33%;
+}
+
+.text img {
+  margin: 15px;
+}

@@ -1,0 +1,18 @@
+  <div class="row">
+    <h1>{{report.name}}</h1>
+    <div>
+      {{report.description}}
+    </div>
+    <hr>
+    {% if report.cover_image != "" %}
+    <div>
+      <img class="center" src="{{report.cover_image}}">
+    </div>
+    {% endif %}
+    <div>
+			{%for passage in report.passages %}
+			<div class="text">{{passage.content}}</div>
+			{% endfor %}
+    </div>
+ 
+  </div>

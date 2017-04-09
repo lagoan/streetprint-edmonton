@@ -1,0 +1,76 @@
+
+<script>
+$('head').append('<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:300,400|Merriweather:300,400|Arvo|Droid+Serif|Lora" rel="stylesheet">');
+</script>
+<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
+
+<script>
+$(function(){
+  var $grid = $('.cards').isotope({
+  itemSelector: '.card',
+  layoutMode: 'masonry',
+  masonry: {
+    columnWidth: 310
+  },
+  cellsByRow: {
+    columnWidth: 320,
+    rowHeight: 320
+  },
+  masonryHorizontal: {
+    rowHeight: 310
+  },
+  cellsByColumn: {
+    columnWidth: 320,
+    rowHeight: 320
+  }
+});
+});
+</script>
+
+
+
+<div class="fixed">
+<nav class="top-bar nav-top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name sans-serif">
+      <h1>{{project.name | link_to: home_path}}</h1>
+    </li>
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+    <section class="top-bar-section">
+      <ul class="right">
+      <li class="active">
+        {{search_bar}}
+      </li>
+      <li class="divider"></li>
+          <li class="has-dropdown">
+            <a href="#">BROWSE</a>
+            <ul class="dropdown">
+                <li><a href="{{items_path}}">Items</a></li>
+                <li><a href="{{reports_path}}">Reports</a></li>
+                <li><a href="{{narratives_path}}">Narratives</a></li>
+                <li><a href="{{people_path}}">People</a></li>
+                <li><a href="{{places_path}}">Places</a></li>
+                <li><a href="{{news_path}}">News</a></li>
+                <li><a href="{{home_path}}/contributors">Contributors</a></li>
+            </ul>
+          </li>
+          <li class="divider"></li>
+          <li>
+            {{"ABOUT" | link_to: about_path}}
+          </li>
+      </ul>
+    </section>
+</nav>
+</div>
+
+
+<!-- content -->
+<div id='content'>
+<div class="container">
+  {{yield}}
+</div>
+</div>
+
+{{footer}}
+  
