@@ -16,14 +16,19 @@
 						{% endif %}
 					</div>
 					<div>{{item.name | link_to_show: project, item}}</div>
-					--
-					<div>{{item.inspect}}</div>
+					{% if item.categories.first %}
+					<div>
+						<div>Categories</div>
+						<ul>
+						{% for cat in item.categories %}
+							{% assign cat_path = items_path | append: "?category=" | append: cat.name %}
+  							{{ cat.name | link_to: cat_path}}
+						{% endfor %}
+						</ul>
+					</div>
+					{% endif %}
 				</li>
 			{% endfor %}
 		</ul>
   </div>
 </div>
-
-
-
-
