@@ -195,6 +195,7 @@ p.lead {
   padding: 45px !important;
   width: 100% !important;
   height: 100% !important;
+  float: none !important;
 }
 
 .card {
@@ -392,4 +393,15 @@ input[type="text"] {
 
 .text-right {
   text-align: right;
+}
+
+.image-in-column {
+  width: 90%;
+}
+
+.row {
+  margin: 0 auto;
+  max-width: 62.5rem;
+  width: 100%;
+  padding-bottom: 20px;
 }

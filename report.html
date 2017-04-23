@@ -1,18 +1,54 @@
-  <div class="row">
+
+<div class="row">
+  <div class="medium-10 medium-offset-1 column">
+    <div class="card card-full">
+      <p class="lead">{{report.name}}</p>
+
+      {% if report.cover_image != "" %}
+      <div>
+        <img class="center image-in-column" src="{{report.cover_image}}">
+      </div>
+      {% endif %}narrative
+
+      <div>
+        {{report.description}}
+      </div>
+
+      <div>
+        {%for passage in report.passages %}
+        <div class="text">{{passage.content}}</div>
+        {% endfor %}
+      </div>
+    </div>    
+  </div>
+</div>
+
+
+<!-- <div class="row">
     <h1>{{report.name}}</h1>
+    <hr>
+</div>
+
+<div class="row">
+  <div class="medium-8 medium-offset-2 columns">
+
+    {% if report.cover_image != "" %}
+    <div>
+      <img class="center image-in-column" src="{{report.cover_image}}">
+    </div>
+    {% endif %}
+
     <div>
       {{report.description}}
     </div>
-    <hr>
-    {% if report.cover_image != "" %}
+
     <div>
-      <img class="center" src="{{report.cover_image}}">
+      {%for passage in report.passages %}
+      <div class="text">{{passage.content}}</div>
+      {% endfor %}
     </div>
-    {% endif %}
-    <div>
-			{%for passage in report.passages %}
-			<div class="text">{{passage.content}}</div>
-			{% endfor %}
-    </div>
- 
+
   </div>
+
+</div>
+ -->

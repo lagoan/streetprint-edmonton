@@ -1,6 +1,55 @@
-<div class="row">
-<div class="medium-12 column">
+{% if item.images.first %}
+  <div class="row">
+    <div class="large-4 large-offset-4">
+      <ul class="orbit" style="width:256px;" data-orbit>
+        {% for image in item.images %}
+        <li>
+          {{image | image_tag: project, "small"}}
+        </li>
+        {%endfor%}
+      </ul>
+    </div>
+  </div>
+{% endif %}
 
+<div class="row">
+  <div class="medium-12 column">
+    <h1>{{item.name}}</h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-12 column">
+      <h4>About</h4>
+      {{item.description }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-12 column">
+    <h4>Details</h4>
+    {{item.full_text}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="medium-12 column">
+    {{item | custom_data_grouped: project}}
+    {{item | custom_data_other: project}}
+  </div>
+</div>
+
+<div class="row">
+  <div class='large-12 column'>
+    <h4>Notes</h4>
+    {{item.notes}}
+  </div>
+</div>
+
+
+
+<!-- <div class="row">
+<div class="medium-12 column">
 
 <div class="centered">
   <h1>{{item.name}}</h1>
@@ -46,4 +95,4 @@
 	{{item.notes}}
 </div>
 </div>
-</div>
+</div> -->
