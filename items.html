@@ -9,26 +9,23 @@
 			{% for item in items %}
 				<li class="small-text">
 					<div class="center-text">
+						{% assign item_path = items_path | append: "/" | append: item.id %}
+						<a href="{{item_path}}">
 						{% if item.images && item.images.first && item.images.first != "" %}
 							{{ item.images.first | image_tag: project, 'thumb' }}
 						{% else %}
 							{{'test.png' | image_tag: project, 'thumb' }}
 						{% endif %}
+						</a>
 					</div>
 
-
-
-
 					<div class="center-text">{{item.name | link_to_show: project, item}}</div>
-
 
 					<ul>
 
 						{% if item.custom_data['publisher'] != "" %}
 						<li>
-							Publisher:
-						
-						
+							Publisher:												
 							{{item.custom_data['publisher']}}
 						</li>
 						{% endif %}	
@@ -61,8 +58,6 @@
 							</li>
 						{% endif %}	
 					</ul>
-
-
 				</li>
 			{% endfor %}
 		</ul>
