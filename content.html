@@ -5,9 +5,16 @@ $('head').append('<link href="https://fonts.googleapis.com/css?family=Merriweath
 <script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
 
 <script>
+
+var $grid = {}
+
 $(function(){
-  var $grid = $('.cards').isotope({
+  $grid = $('.cards').isotope({
   itemSelector: '.card',
+    getSortData: {
+    name: '[data-name]',
+    order: '[data-order] parseInt'
+  },
   layoutMode: 'masonry',
   masonry: {
     columnWidth: 310

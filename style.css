@@ -386,6 +386,10 @@ input[type="text"] {
   margin: 15px;
 }
 
-.center-text {
+.text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
