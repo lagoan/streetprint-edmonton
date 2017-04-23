@@ -1,0 +1,25 @@
+ <div class="row">
+  <div class="large-6 column">
+    {{ person.images.first | image_tag: project, 'small' }}
+  </div>
+  <div class="large-6 column">
+    <h2>{{ person.name }}</h2>
+  <hr/>
+    <h4>Description:</h4>
+    {{ person.description }}
+  </div>
+ </div>
+ <hr/>
+<div class="row">
+  <div class="large-12 column">
+    <h4>Images</h4>
+    <ul class="clearing-thumbs small-block-grid-4 large-block-grid-6" data-clearing>
+      {% for image in person.images %}
+        <li>
+          {{image | image_tag: project, 'thumb'}}
+          <br/>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
