@@ -1,15 +1,19 @@
 
 <div class="cards">
 
-	<div class="card card-wide"> 
+	<div class="card card-wide" data-order="0" data-name=""> 
 		<p class="lead">Reports</p>
 
 		<p>A report is a multimedia description of print and reading based on field research, including collection, observation, photography, and interviews.</p>
+
+		<div class="text-right">
+			Sort by <button id="sortName">Name</button> <button id="sortDate">Date</button>
+		</div>
 	</div>
 
 {%for report in reports%}
 	{% if report.cover_image == "" %}
-	<div class="card">
+	<div class="card" data-order="{{forloop.index}}" data-name="{{report.name}}">
 		<a class="whole-tile" href="{{reports_path | append: "/" | append: report.id}}">		
 		<span class="arrow">→</span>
 		</a>
@@ -19,7 +23,7 @@
 	</div>
 	{% else %}
 		<a href="{{reports_path | append: "/" | append: report.id}}">
-		<div class="fill-link slip card" style="background: 
+		<div data-order="{{forloop.index}}" data-name="{{report.name}}" class="fill-link slip card" style="background: 
 		linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
 		url('{{report.cover_image}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
 		<div class='card-label'><span>{{report.name}}</span><i>→</i></div>
@@ -29,3 +33,15 @@
 {%endfor%}
 
 </div>
+
+<script type="text/javascript">
+	$(function(){
+		$('#sortName').click(function(){
+			$grid.isotope({sortBy: 'name'});	
+			
+		})
+		$('#sortDate').click(function(){
+			$grid.isotope({ sortBy : 'order' });				
+		})
+	})
+</script>
