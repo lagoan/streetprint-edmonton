@@ -7,26 +7,62 @@
   <div class='large-12 columns'>
 		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
 			{% for item in items %}
-				<li>
-					<div>
-						{% if item.images.first && item.images.first != "" %}
-							{{ item.images.first | image_tag: project, "thumb" }}
+				<li class="small-text">
+					<div class="center-text">
+						{% if item.images && item.images.first && item.images.first != "" %}
+							{{ item.images.first | image_tag: project, 'thumb' }}
 						{% else %}
 							{{'test.png' | image_tag: project, 'thumb' }}
 						{% endif %}
 					</div>
-					<div>{{item.name | link_to_show: project, item}}</div>
-					{% if item.categories.first %}
-					<div>
-						<div>Categories</div>
-						<ul>
-						{% for cat in item.categories %}
-							{% assign cat_path = items_path | append: "?category=" | append: cat.name %}
-  							{{ cat.name | link_to: cat_path}}
-						{% endfor %}
-						</ul>
-					</div>
-					{% endif %}
+
+
+
+
+					<div class="center-text">{{item.name | link_to_show: project, item}}</div>
+
+
+					<ul>
+
+						{% if item.custom_data['publisher'] != "" %}
+						<li>
+							Publisher:
+						
+						
+							{{item.custom_data['publisher']}}
+						</li>
+						{% endif %}	
+
+						{% if item.custom_data['place_of_publication'] != "" %}
+						<li>
+							Place of publication:
+							{{item.custom_data['place_of_publication']}}
+						</li>
+						{% endif %}	
+
+						{% if item.custom_data['publication_date'] != "" %}
+						<li>
+							Date of publication:
+							{{item.custom_data['publication_date']}}
+						</li>
+						{% endif %}	
+						
+						{% if item.categories.first %}						
+							<li>
+							<div>Categories</div>
+							<ul>
+								{% for cat in item.categories %}
+								<li>
+									{% assign cat_path = items_path | append: "?category=" | append: cat.name %}
+  									{{ cat.name | link_to: cat_path}}
+  								</li>
+								{% endfor %}
+							</ul>
+							</li>
+						{% endif %}	
+					</ul>
+
+
 				</li>
 			{% endfor %}
 		</ul>

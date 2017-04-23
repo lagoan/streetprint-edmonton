@@ -385,3 +385,7 @@ input[type="text"] {
 .text img {
   margin: 15px;
 }
+
+.center-text {
+  text-align: center;
+}
