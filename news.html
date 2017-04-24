@@ -1,4 +1,32 @@
-   <div class="row">
+<div class="row">
+  <div class="medium-10 medium-offset-1 column">
+    <div class="card card-full">
+      <p class="lead">News</p>
+      {% if posts.first %}
+      <div class="large-4 medium-5 columns" style="padding-left:0px;">
+        <table width="100%" class="table-select" id="news_table">
+          <tbody class="centered">
+            {% for post in posts %}
+              <tr id="{{ post.id }}" title="{{ post.title }}" body="{{ post.body }}">
+                <td><strong>{{ post.title }}</strong><br/>{{ post.publish_at }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      <div class="large-8 medium-7 columns">
+        <h4 id="post-title">{{ posts.first.title }}</h4>
+        <div id="post-body">{{posts.first.body}}</div>
+      </div>
+    {% else %}
+      No news has been posted.
+    {% endif %}
+    </div>
+  </div>
+</div>  
+
+<!--   
+ <div class="row">
     <h2>News</h2>
     <hr/>
     {% if posts.first %}
@@ -21,6 +49,10 @@
       No news has been posted.
     {% endif %}
   </div>
+
+ -->
+
+
   <script>
   $(document).ready(function() {
     $('#news_table tr').click(function (){
