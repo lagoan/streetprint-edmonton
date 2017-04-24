@@ -1,0 +1,74 @@
+<div class="row">
+	<div class="medium-10 medium-offset-1 column">
+		<div class="card card-full">
+			<div class="row">
+				<div class="medium-12 column">
+				<p class="lead">{{ place.name }}</p>	
+				<div>
+					{{ place.address }}
+				</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="medium-12 column">
+				{{ map_script }}
+				</div>
+			</div>
+			
+			{% if place.images.length > 0 %}
+				<div class="row">
+					<div class="medium-12 column">
+					<h4>Images</h4>
+		            <ul class="clearing-thumbs small-block-grid-4 large-block-grid-6" data-clearing>
+		              {% for image in place.images %}
+		                <li>
+		                  {{ image | image_tag: project, 'thumb' }}
+		                  <br/>
+		                </li>
+		              {% endfor %}
+		            </ul>
+		            </div>
+				</div>
+			{% endif %}
+			
+		</div>		
+	</div>
+</div>
+
+<!--  <div class="row">
+    <div class="large-12 column">
+      <div class="page">
+        <div class="row">
+          <div class="large-12 column">
+            <h2>{{ place.name }}</h2>
+            <h3><{{ place.address }}></h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="large-12 column">
+            {{ place.description }}
+          </div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="large-12 column">
+						{{ map_script }}
+        	</div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="large-12 column">
+            <h4>Images</h4>
+            <ul class="clearing-thumbs small-block-grid-4 large-block-grid-6" data-clearing>
+              {% for image in place.images %}
+                <li>
+                  {{ image | image_tag: project, 'thumb' }}
+                  <br/>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        <hr/>
+    </div>
+  </div> -->

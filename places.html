@@ -1,4 +1,22 @@
 <div class="row">
+	<div class="medium-10 medium-offset-1 column">
+		<div class="card card-full">
+			<p class="lead">Places</p>
+			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+			{% for place in places %}
+				<li>
+					<a class="" href="{{places_path | append: "/" | append: place.id}}">	
+						<b>{{ place.name }}</b>
+					</a>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>		
+	</div>
+</div>
+
+
+<!-- <div class="row">
 	<div class="medium-12 column">
 		<h2>Places</h2>
 		<hr/>
@@ -13,3 +31,21 @@
 		</ul>
 	</div>
 </div>
+
+
+<div class="row">
+	<div class="medium-10 medium-offset-1 column">
+		<div class="card card-full">
+			<p class="lead">People</p>
+			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
+			{% for person in people %}
+				<li>
+					<a class="" href="{{people_path | append: "/" | append: person.id}}">	
+						<b>{{ person.name }}</b>
+					</a>
+				</li>
+			{% endfor %}
+			</ul>
+		</div>		
+	</div>
+</div> -->
