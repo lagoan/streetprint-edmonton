@@ -1,3 +1,93 @@
+
+<div class="row">
+  <div class="medium-10 medium-offset-1 column">
+    <div class="card card-full">
+
+      {% if item.images.first %}
+        <div class="row">
+          <div class="large-4 large-offset-4">
+            <ul class="orbit" style="width:256px;" data-orbit>
+              {% for image in item.images %}
+              <li>
+                {{image | image_tag: project, "small"}}
+              </li>
+              {%endfor%}
+            </ul>
+          </div>
+        </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="medium-12 column">
+          <p class="lead">{{item.name}}</p>
+        </div>
+      </div>
+
+      {% if item.description != "" %}
+      <div class="row">
+        <div class="medium-12 column">
+            <h4>About</h4>
+            {{item.description}}
+        </div>
+      </div>
+      {% endif %}
+
+      {% if item.full_text != "" %}
+      <div class="row">
+        <div class="medium-12 column">
+          <h4>Details</h4>
+          {{item.full_text}}
+        </div>
+      </div>
+      {% endif %}
+
+      <div class="row">
+        <div class="medium-6 column">
+        <div>Publication details</div>
+        <ul>
+          <li>
+            Place of publication: {{item.custom_metadata["place_of_publication"]}}
+          </li>
+          <li>Publisher: {{item.custom_metadata["publisher"]}}</li>
+          <li>Publication date: {{item.custom_metadata["publication_date"]}}</li>
+          <li>Language: {{item.custom_metadata["language"]}}</li>
+          <li>Price: {{item.custom_metadata["price"]}}</li>
+        </ul>
+        <!-- {{item.custom_data}} -->
+        </div>
+        <div class="medium-6 column">
+          <div>Collection details</div>
+          <ul>
+            <li>
+              Place of collection: {{item.custom_metadata["place_of_collection"]}}
+            </li>
+            <li>
+              Collected by: {{item.custom_metadata["collected_by"]}}
+            </li>
+            <li>
+              Collection date: {{item.custom_metadata["collection_Date"]}}
+            </li>
+            <li>
+              Collection details: {{item.custom_metadata["collection_details"]}}
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {% if item.notes != "" %}
+      <div class="row">
+        <div class='large-12 column'>
+          <h4>Notes</h4>
+          {{item.notes}}
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+<!-- 
 {% if item.images.first %}
   <div class="row">
     <div class="large-4 large-offset-4">
@@ -46,53 +136,4 @@
   </div>
 </div>
 
-
-
-<!-- <div class="row">
-<div class="medium-12 column">
-
-<div class="centered">
-  <h1>{{item.name}}</h1>
-</div>
-{% if item.images.first %}
-  <div class="row">
-    <div class="large-4 large-offset-4">
-      <ul class="orbit" style="width:256px;" data-orbit>
-        {% for image in item.images %}
-        <li>
-          {{image | image_tag: project, "small"}}
-        </li>
-        {%endfor%}
-      </ul>
-    </div>
-  </div>
-{% endif %}
-<div class="centered">
-{% for cat in item.categories %}
-	{% assign cat_path = items_path | append: "?category=" | append: cat.name %}
-  <i class="fa fa-flag"></i> {{ cat.name | link_to: cat_path}}
-{% endfor %}
-{% for tag in item.tags %}
-	{% assign tag_path = items_path | append: "?tag=" | append: tag.name %}
-  <i class="fa fa-tag" style="color:{{tag.color}}"></i> {{ tag.name | link_to: tag_path}}
-{% endfor %}
-</div>
-<br/>
-<div class='large-6 panel callout radius column'>
-	<h4>About</h4>
-	{{item.description }}
-</div>
-<div class='large-6 panel callout radius column'>
-	<h4>Details</h4>
-	{{item.full_text}}
-</div>
-
-{{item | custom_data_grouped: project}}
-{{item | custom_data_other: project}}
-
-<div class='large-12 panel callout radius column'>
-	<h4>Notes</h4>
-	{{item.notes}}
-</div>
-</div>
-</div> -->
+ -->
