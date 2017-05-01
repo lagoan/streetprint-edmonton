@@ -4,15 +4,15 @@
     <div class="card card-full">
       <p class="lead">{{report.name}}</p>
 
+      <div>
+        {{report.description}}
+      </div>
+
       {% if report.cover_image != "" %}
       <div>
         <img class="center image-in-column" src="{{report.cover_image}}">
       </div>
-      {% endif %}narrative
-
-      <div>
-        {{report.description}}
-      </div>
+      {% endif %}
 
       <div>
         {%for passage in report.passages %}
