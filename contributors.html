@@ -1,34 +1,24 @@
 
-<div class="row">
-	<div class="medium-10 medium-offset-1 column">
-		<div class="card card-full">
-			<p class="lead">Current research team</p>
-			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-			{% for contributor in contributors %}
-				<li>
-					{{contributor.avatar | image_tag: project, 'small'}}
-		   		 <b>{{ contributor.name }}</b>
-				</li>
-			{% endfor %}
-		</ul>
-		</div>
+<div class="cards">
+
+	<div class="card card-wide" data-order="0" data-name=""> 
+		<p class="lead">Current Research Team</p>
 	</div>
-</div>
 
-<!-- <div class="row">
-	<div class="medium-12 column">
-		<h2>Current Research Team</h2>
-		<hr/>
-		<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-			{% for contributor in contributors %}
-				<li>
-					{{contributor.avatar | image_tag: project, 'small'}}
-		   		 <b>{{ contributor.name }}</b>
-				</li>
-			{% endfor %}
-		</ul>
+{%for contributor in contributors%}
+
+{% if contributor.avatar == ""  || contributor.avatar == "/assets/placeholder.jpg"%}
+	<div class="card">
+		<h3>{{ contributor.name }}</h3>
 	</div>
+{% else %}
+	<div class="fill-link slip card" style="background: 
+	linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+	url('{{contributor.avatar}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+	<div class='card-label'><span>{{contributor.name}}</span></div>
+	</div>
+{% endif %}
+
+{%endfor%}
+
 </div>
- -->
-
-
