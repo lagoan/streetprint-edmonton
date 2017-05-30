@@ -1,9 +1,17 @@
+
+
+
 <h2 style="text-align:center;color:#999999">Some Pretty Great Stuff</h2>
 <div class='row'>
-  <div class='large-12 columns panel filter-panel radius'>
-    {{tag_filters}}
-    {{category_filters}}
+  
+
+
+  <div class='large-12 columns panel filter-panel radius' id="filters">
+<!--     {{tag_filters}}
+    {{category_filters}} -->
   </div>
+
+
   <div class='large-12 columns'>
 		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
 			{% for item in items %}
@@ -63,3 +71,46 @@
 		</ul>
   </div>
 </div>
+
+
+<script>
+  	$(function(){
+		var tagFiltersString = '{{tag_filters}}'
+		var categoryFiltersString = '{{category_filters}}'
+		var tagFiltersJSON = JSON.parse(tagFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
+		var categoryFiltersJSON = JSON.parse(categoryFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
+
+		// <ul id="drop1" class="f-dropdown" data-dropdown-content class="dropdown" aria-autoclose="false">
+		// 	<li><a href="{{items_path}}">Items</a></li>
+		// 	<li><a href="{{reports_path}}">Reports</a></li>
+		// 	<li><a href="{{narratives_path}}">Narratives</a></li>
+		// 	<li><a href="{{people_path}}">People</a></li>
+		// 	<li><a href="{{places_path}}">Places</a></li>
+		// 	<li><a href="{{news_path}}">News</a></li>
+		// 	<li><a href="{{home_path}}/contributors">Contributors</a></li>
+		// </ul>
+
+
+		var getKeys = function(obj) {
+			result = []
+			for (var key in obj) {
+				if (obj.hasOwnProperty(key)) {
+					result.push(key)
+				}
+			}
+			return result.sort()
+		}
+
+		var tagCategorieDropdown = '<ul id="tag-categories" class="f-dropdown" data-dropdown-content class="dropdown" aria-autoclose="false">'
+
+		for (var key in getKeys(tagFiltersJSON)) {
+			tagCategorieDropdown += "<li><a href = '"+ tagFiltersJSON[key] +"'>" + key + "</a></li>"
+		}
+
+
+		tagCategorieDropdown += "</ul>"
+		console.log(tagFiltersJSON)
+		$("#filters").html(tagCategorieDropdown)
+	})
+
+</script>
