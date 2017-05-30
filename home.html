@@ -213,7 +213,7 @@ $(function(){
 {%endfor%}
 -->
 
-{%for report in featured_reports limit: 12%}
+{%for report in featured_reports reversed limit: 12%}
 	{% if report.cover_image == "" %}
 	<div class="card">
 		<a class="whole-tile" href="{{reports_path | append: "/" | append: report.id}}">		
