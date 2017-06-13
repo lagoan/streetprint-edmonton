@@ -3,7 +3,7 @@
 
 <h2 style="text-align:center;color:#999999">Some Pretty Great Stuff</h2>
 <div class='row'>
-  
+
 
 
   <div class='large-12 columns panel filter-panel radius' id="filters">
@@ -33,26 +33,26 @@
 
 						{% if item.custom_data['publisher'] != "" %}
 						<li>
-							Publisher:												
+							Publisher:
 							{{item.custom_data['publisher']}}
 						</li>
-						{% endif %}	
+						{% endif %}
 
 						{% if item.custom_data['place_of_publication'] != "" %}
 						<li>
 							Place of publication:
 							{{item.custom_data['place_of_publication']}}
 						</li>
-						{% endif %}	
+						{% endif %}
 
 						{% if item.custom_data['publication_date'] != "" %}
 						<li>
 							Date of publication:
 							{{item.custom_data['publication_date']}}
 						</li>
-						{% endif %}	
-						
-						{% if item.categories.first %}						
+						{% endif %}
+
+						{% if item.categories.first %}
 							<li>
 							<div>Categories</div>
 							<ul>
@@ -64,7 +64,7 @@
 								{% endfor %}
 							</ul>
 							</li>
-						{% endif %}	
+						{% endif %}
 					</ul>
 				</li>
 			{% endfor %}
@@ -80,37 +80,51 @@
 		var tagFiltersJSON = JSON.parse(tagFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
 		var categoryFiltersJSON = JSON.parse(categoryFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
 
-		// <ul id="drop1" class="f-dropdown" data-dropdown-content class="dropdown" aria-autoclose="false">
-		// 	<li><a href="{{items_path}}">Items</a></li>
-		// 	<li><a href="{{reports_path}}">Reports</a></li>
-		// 	<li><a href="{{narratives_path}}">Narratives</a></li>
-		// 	<li><a href="{{people_path}}">People</a></li>
-		// 	<li><a href="{{places_path}}">Places</a></li>
-		// 	<li><a href="{{news_path}}">News</a></li>
-		// 	<li><a href="{{home_path}}/contributors">Contributors</a></li>
-		// </ul>
-
-
 		var getKeys = function(obj) {
+			console.log(obj)
 			result = []
 			for (var key in obj) {
 				if (obj.hasOwnProperty(key)) {
 					result.push(key)
 				}
 			}
+			console.log(result)
 			return result.sort()
 		}
 
-		var tagCategorieDropdown = '<ul id="tag-categories" class="f-dropdown" data-dropdown-content class="dropdown" aria-autoclose="false">'
+  		console.log(categoryFiltersJSON)
+  		var selectBoxes = '<div class="row">'
+  		selectBoxes += '<div class="large-6 columns">'
+  		selectBoxes += '<label>Categories'
+  		selectBoxes += '<select id="category-select">'
+  		getKeys(categoryFiltersJSON).forEach(function(key){
+  			selectBoxes += "<option value = '"+ categoryFiltersJSON[key] +"'>" + key + "</option>"
+  		})
+  		selectBoxes += '</select>'
+  		selectBoxes += '</label>'
+  		selectBoxes += '</div>' // 1 column
 
-		for (var key in getKeys(tagFiltersJSON)) {
-			tagCategorieDropdown += "<li><a href = '"+ tagFiltersJSON[key] +"'>" + key + "</a></li>"
-		}
+  		selectBoxes += '<div class="large-6 columns">'
+  		selectBoxes += '<label>Tags'
+  		selectBoxes += '<select id="tag-select">'
+  		getKeys(tagFiltersJSON).forEach(function(key){
+  			selectBoxes += "<option value = '"+ tagFiltersJSON[key] +"'>" + key + "</option>"
+  		})
+  		selectBoxes += '</select>'
+  		selectBoxes += '</label>'
+  		selectBoxes += '</div>' // 2 column
+  		selectBoxes += '</div>' // row
 
+		$("#filters").html(selectBoxes)
 
-		tagCategorieDropdown += "</ul>"
-		console.log(tagFiltersJSON)
-		$("#filters").html(tagCategorieDropdown)
+		$("#category-select").change(function(){
+			console.log( $(this).val() )
+		})
+
+		$("#tag-select").change(function(){
+			console.log( $(this).val() )
+		})
+		console.log(tagFiltersJSON);
 	})
 
 </script>
