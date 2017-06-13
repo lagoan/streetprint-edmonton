@@ -118,13 +118,21 @@
 		$("#filters").html(selectBoxes)
 
 		$("#category-select").change(function(){
+			var origin = $(location).attr('origin')
+			var selected = $(this).val()
 			console.log( $(this).val() )
+			window.location = origin + selected
 		})
 
 		$("#tag-select").change(function(){
+			var origin = $(location).attr('origin')
+			var selected = $(this).val()
 			console.log( $(this).val() )
+			window.location = origin + selected
 		})
-		console.log(tagFiltersJSON);
+
+
+
 	})
 
 </script>
