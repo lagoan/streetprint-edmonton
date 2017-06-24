@@ -406,3 +406,7 @@ input[type="text"] {
   width: 100%;
   padding-bottom: 20px;
 }
+
+.table-full-width {
+  width: 100%;
+}
