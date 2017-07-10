@@ -81,22 +81,20 @@
 		var categoryFiltersJSON = JSON.parse(categoryFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
 
 		var getKeys = function(obj) {
-			console.log(obj)
 			result = []
 			for (var key in obj) {
 				if (obj.hasOwnProperty(key)) {
 					result.push(key)
 				}
 			}
-			console.log(result)
 			return result.sort()
 		}
 
-  		console.log(categoryFiltersJSON)
   		var selectBoxes = '<div class="row">'
   		selectBoxes += '<div class="large-6 columns">'
   		selectBoxes += '<label>Categories'
   		selectBoxes += '<select id="category-select">'
+  		selectBoxes += '<option value=""></option>'
   		getKeys(categoryFiltersJSON).forEach(function(key){
   			selectBoxes += "<option value = '"+ categoryFiltersJSON[key] +"'>" + key + "</option>"
   		})
@@ -107,6 +105,7 @@
   		selectBoxes += '<div class="large-6 columns">'
   		selectBoxes += '<label>Tags'
   		selectBoxes += '<select id="tag-select">'
+  		selectBoxes += '<option value=""></option>'
   		getKeys(tagFiltersJSON).forEach(function(key){
   			selectBoxes += "<option value = '"+ tagFiltersJSON[key] +"'>" + key + "</option>"
   		})
@@ -131,6 +130,9 @@
 			window.location = origin + selected
 		})
 
+		var pathQuery = window.location.pathname + window.location.search
+		$("#tag-select").val(pathQuery)
+		$("#category-select").val(pathQuery)
 
 
 	})

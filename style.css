@@ -36,7 +36,7 @@ h5 {
 }
 
 h6 {
-  font-size:16px; 
+  font-size:16px;
   line-height:20px;
 }
 
@@ -64,9 +64,9 @@ ul, ol, dl {
   padding: 23px 45px;
 }
 
-a:link, 
-a:visited, 
-a:hover, 
+a:link,
+a:visited,
+a:hover,
 a:active {
   color: #2B2B2B;
 }
@@ -92,9 +92,9 @@ p.lead {
   letter-spacing: 2px;
 }
 
-.cards a:link, 
-.cards a:visited, 
-.cards a:hover, 
+.cards a:link,
+.cards a:visited,
+.cards a:hover,
 .cards a:active {
   text-decoration: underline;
 }
@@ -117,22 +117,23 @@ p.lead {
 }
 
 .container {
-  width: 100%;
+  /*width: 100%;*/
   margin: 0 auto;
-  max-width: 1250px;  
+  /*max-width: 1250px;  */
+  width: 960px;
 }
 
-@media screen and (max-width: 1300px) and (min-width: 960px) {
+/*@media screen and (max-width: 1300px) and (min-width: 960px) {
   .container {
-    max-width: 960px; 
+    max-width: 960px;
   }
 }
 
 @media screen and (max-width: 959px) and (min-width: 0px) {
   .container {
-    max-width: 640px; 
+    max-width: 640px;
   }
-}
+}*/
 
 .cards {
   list-style-type: none;
@@ -141,7 +142,7 @@ p.lead {
 
 .card-header-container {
   width: 910px !important;
-  height: 560px !important;
+  height: 620px !important;
   padding: 0px !important;
   background-color: #F5F5F5 !important;
 }
@@ -165,7 +166,7 @@ p.lead {
 }
 
 .card-header-bottom-right {
-  width: 600px !important;  
+  width: 600px !important;
   height: 270px !important;
   position: absolute;
   bottom: 0px;
@@ -191,7 +192,7 @@ p.lead {
 }
 
 .card-full {
-  background-color: #FFFFFF !important; 
+  background-color: #FFFFFF !important;
   padding: 45px !important;
   width: 100% !important;
   height: 100% !important;
@@ -287,10 +288,10 @@ span.arrow {
 }
 
 .top-bar .name h1 a {
-   font-weight: 100 !important;  
+   font-weight: 100 !important;
 }
 
-.top-bar {  
+.top-bar {
   background-color: #F5F5F5 !important;
 }
 
@@ -332,7 +333,7 @@ span.arrow {
 }
 
 input[type="text"] {
-  font-family: sans-serif;  
+  font-family: sans-serif;
 }
 
 .footer {
@@ -341,8 +342,8 @@ input[type="text"] {
 }
 
 .cover-image {
-  background-repeat: no-repeat !important; 
-  background-position: center !important; 
+  background-repeat: no-repeat !important;
+  background-position: center !important;
   background-size: cover !important;
 }
 
@@ -409,4 +410,21 @@ input[type="text"] {
 
 .table-full-width {
   width: 100%;
+}
+
+
+.card-header-featured-title {
+  padding: 10px 20px;
+  width: 910px;
+  height: 40px;
+  background: #FFFFFF;
+  position: absolute;
+  top: 290px;
+}
+
+.card-featured-reports {
+  padding: 10px 20px !important;
+  width: 910px !important;
+  height: 40px !important;
+  background: #FFFFFF !important;
 }

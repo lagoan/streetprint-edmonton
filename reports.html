@@ -5,21 +5,20 @@
 		<p class="lead">Reports</p>
 
 		<p>A report is a multimedia description of print and reading based on field research, including collection, observation, photography, and interviews.</p>
-
-
-
+		<!--
 		<div class="text-right">
 			Sort by 
 			<button id="sortName" class="button tiny">Name</button> 
 			<button id="sortDate" class="button tiny">Date</button>
 		</div>
+		-->
 		<div>
 			{{pagination}}
 		</div>
 	</div>
 
 {%for report in reports%}
-	{% if report.cover_image == "" %}
+	{% if report.cover_image_thumb == "" %}
 	<div class="card" data-order="{{forloop.index}}" data-name="{{report.name}}">
 		<a class="whole-tile" href="{{reports_path | append: "/" | append: report.id}}">		
 		<span class="arrow">→</span>
@@ -32,7 +31,7 @@
 		<a href="{{reports_path | append: "/" | append: report.id}}">
 		<div data-order="{{forloop.index}}" data-name="{{report.name}}" class="fill-link slip card" style="background: 
 		linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-		url('{{report.cover_image}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+		url('{{report.cover_image_thumb}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
 		<div class='card-label'><span>{{report.name}}</span><i>→</i></div>
 		</div>
 		</a>
