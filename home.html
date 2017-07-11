@@ -115,7 +115,7 @@
 		</p>
 	</div>
 
-{%for report in featured_reports reversed limit: 12%}
+{%for report in featured_reports reversed limit: 9%}
 	{% if report.cover_image_thumb == "" %}
 	<div class="card">
 		<a class="whole-tile" href="{{reports_path | append: "/" | append: report.id}}">
