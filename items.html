@@ -4,12 +4,20 @@
 <h2 style="text-align:center;color:#999999">Some Pretty Great Stuff</h2>
 <div class='row'>
 
-
-
-  <div class='large-12 columns panel filter-panel radius' id="filters">
-<!--     {{tag_filters}}
-    {{category_filters}} -->
-  </div>
+	<div class='large-12 columns panel filter-panel radius' id="filters">
+  		<div class="row">
+  			<div class="large-6 columns">
+  				<label>Categories</label>
+  				{{category_dropdown}}
+  			</div>
+  			<div class="large-6 columns">
+  				<label>Tags</label>
+  				{{tag_dropdown}}
+  				
+  			</div>
+  		</div>
+  	</div>
+  
 
 
   <div class='large-12 columns'>
@@ -75,52 +83,67 @@
 
 <script>
   	$(function(){
-		var tagFiltersString = '{{tag_filters}}'
-		var categoryFiltersString = '{{category_filters}}'
-		var tagFiltersJSON = JSON.parse(tagFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
-		var categoryFiltersJSON = JSON.parse(categoryFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
+		// var tagFiltersString = '{{tag_filters}}'
+		// var categoryFiltersString = '{{category_filters}}'
+		// var tagFiltersJSON = JSON.parse(tagFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
+		// var categoryFiltersJSON = JSON.parse(categoryFiltersString.replace(/=>/g, ":").replace(/\}\{/g, ", "))
 
-		var getKeys = function(obj) {
-			result = []
-			for (var key in obj) {
-				if (obj.hasOwnProperty(key)) {
-					result.push(key)
-				}
-			}
-			return result.sort()
+		// var getKeys = function(obj) {
+		// 	result = []
+		// 	for (var key in obj) {
+		// 		if (obj.hasOwnProperty(key)) {
+		// 			result.push(key)
+		// 		}
+		// 	}
+		// 	return result.sort()
+		// }
+
+  // 		var selectBoxes = '<div class="row">'
+  // 		selectBoxes += '<div class="large-6 columns">'
+  // 		selectBoxes += '<label>Categories'
+  // 		selectBoxes += '<select id="category-select">'
+  // 		selectBoxes += '<option value=""></option>'
+  // 		getKeys(categoryFiltersJSON).forEach(function(key){
+  // 			selectBoxes += "<option value = '"+ categoryFiltersJSON[key] +"'>" + key + "</option>"
+  // 		})
+  // 		selectBoxes += '</select>'
+  // 		selectBoxes += '</label>'
+  // 		selectBoxes += '</div>' // 1 column
+
+  // 		selectBoxes += '<div class="large-6 columns">'
+  // 		selectBoxes += '<label>Tags'
+  // 		selectBoxes += '<select id="tag-select">'
+  // 		selectBoxes += '<option value=""></option>'
+  // 		getKeys(tagFiltersJSON).forEach(function(key){
+  // 			selectBoxes += "<option value = '"+ tagFiltersJSON[key] +"'>" + key + "</option>"
+  // 		})
+  // 		selectBoxes += '</select>'
+  // 		selectBoxes += '</label>'
+  // 		selectBoxes += '</div>' // 2 column
+  // 		selectBoxes += '</div>' // row
+
+		//$("#filters").html(selectBoxes)
+
+		// from https://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+		function getParameterByName(name) {
+			var url = window.location.href;
+			name = name.replace(/[\[\]]/g, "\\$&");
+			var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+			results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2]);
 		}
-
-  		var selectBoxes = '<div class="row">'
-  		selectBoxes += '<div class="large-6 columns">'
-  		selectBoxes += '<label>Categories'
-  		selectBoxes += '<select id="category-select">'
-  		selectBoxes += '<option value=""></option>'
-  		getKeys(categoryFiltersJSON).forEach(function(key){
-  			selectBoxes += "<option value = '"+ categoryFiltersJSON[key] +"'>" + key + "</option>"
-  		})
-  		selectBoxes += '</select>'
-  		selectBoxes += '</label>'
-  		selectBoxes += '</div>' // 1 column
-
-  		selectBoxes += '<div class="large-6 columns">'
-  		selectBoxes += '<label>Tags'
-  		selectBoxes += '<select id="tag-select">'
-  		selectBoxes += '<option value=""></option>'
-  		getKeys(tagFiltersJSON).forEach(function(key){
-  			selectBoxes += "<option value = '"+ tagFiltersJSON[key] +"'>" + key + "</option>"
-  		})
-  		selectBoxes += '</select>'
-  		selectBoxes += '</label>'
-  		selectBoxes += '</div>' // 2 column
-  		selectBoxes += '</div>' // row
-
-		$("#filters").html(selectBoxes)
 
 		$("#category-select").change(function(){
 			var origin = $(location).attr('origin')
 			var selected = $(this).val()
-			console.log( $(this).val() )
-			window.location = origin + selected
+			if (selected != "") {
+				window.location = origin + selected	
+			} else {
+				// remove category
+			}
+			
 		})
 
 		$("#tag-select").change(function(){
@@ -131,8 +154,28 @@
 		})
 
 		var pathQuery = window.location.pathname + window.location.search
+
+		var emptyCategory = window.location.pathname
+		var emptyTag = window.location.pathname
+		var categoryValue = getParameterByName("category")
+		var tagValue = getParameterByName("tag")
+
+		if (tagValue != null) {
+			emptyCategory += "?tag=" + tagValue
+		}
+
+		if (categoryValue != null) {
+			emptyTag += "?category=" + categoryValue
+		}
+
+		$("#tag-select option:first").val(emptyTag)
+		$("#category-select option:first").val(emptyCategory)
+
+
 		$("#tag-select").val(pathQuery)
 		$("#category-select").val(pathQuery)
+
+
 
 
 	})
