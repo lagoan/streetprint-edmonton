@@ -40,7 +40,10 @@ $(function(){
 <nav class="top-bar nav-top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name sans-serif">
-      <h1>{{project.name | link_to: home_path}}</h1>
+      <img src={{'sp-edmonton.png' | image_path: project}} />
+      <!-- {{'sp-edmonton.png' | image_tag: project}} -->
+      <!-- <h1>{{project.name | link_to: home_path}}</h1> -->
+      
     </li>
     <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
   </ul>
