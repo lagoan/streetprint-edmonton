@@ -19,7 +19,67 @@
   	</div>
   
 
-
+	<table class="table-full-width">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>Publisher</th>
+				<th>Place of publication</th>
+				<th>Publication date</th>
+				<th>Categories</th>
+				<th>Tags</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for item in items %}
+			<tr>
+				<td>
+					{% assign item_path = items_path | append: "/" | append: item.id %}
+					<a href="{{item_path}}">
+					{% if item.images && item.images.first && item.images.first != "" %}
+						{{ item.images.first | image_tag: project, 'thumb' }}
+					{% else %}
+						{{'test.png' | image_tag: project, 'thumb' }}
+					{% endif %}
+					</a>
+				</td>
+				<td>
+					{{ item.name || link_to_show: project, item}}		
+				</td>
+				<td>
+					{{item.custom_data['publisher']}}
+				</td>					
+				<td>		
+					{{item.custom_data['place_of_publication']}}
+				</td>
+				<td>
+					{{item.custom_data['publication_date']}}
+				</td>
+				<td>
+					<ul>
+						{% for cat in item.categories %}
+						<li>
+							{% assign cat_path = items_path | append: "?category=" | append: cat.name %}
+								{{ cat.name | link_to: cat_path}}
+						</li>
+						{% endfor %}
+					</ul>
+				</td>
+				<td>
+					<ul>
+						{% for tag in item.tags %}
+						<li>
+							{% assign tag_path = items_path | append: "?tag=" | append: tag.name %}
+								{{ tag.name | link_to: tag_path}}
+							</li>
+						{% endfor %}
+					</ul>
+				</td>
+			</tr>
+			{% endfor %} 
+		</tbody>
+	</table>
 
 
 <!--
