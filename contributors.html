@@ -6,15 +6,15 @@
 	</div>
 
 {%for contributor in contributors%}
-
-{% if contributor.avatar == ""  || contributor.avatar == "/assets/placeholder.jpg"%}
+<!--{{contributor.avatar | image_path: project, 'small'}}-->
+{% if contributor.avatar == "/assets/placeholder.jpg"%}
 	<div class="card">
 		<h3>{{ contributor.name }}</h3>
 	</div>
 {% else %}
 	<div class="fill-link slip card" style="background: 
 	linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-	url('{{contributor.avatar}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
+	url('{{contributor.avatar | image_path: project, 'small'}}'); background-repeat: no-repeat; background-position: center; background-size: cover;">
 	<div class='card-label'><span>{{contributor.name}}</span></div>
 	</div>
 {% endif %}

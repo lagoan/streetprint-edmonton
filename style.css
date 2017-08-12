@@ -428,3 +428,7 @@ input[type="text"] {
   height: 40px !important;
   background: #FFFFFF !important;
 }
+
+.name img:hover {
+    background-color: rgba(0,0,0,0) !important;
+}
