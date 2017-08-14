@@ -432,3 +432,7 @@ input[type="text"] {
 .name img:hover {
     background-color: rgba(0,0,0,0) !important;
 }
+
+.items-pagination .pagination {
+  display: inline-table !important;
+}

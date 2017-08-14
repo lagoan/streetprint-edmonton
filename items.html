@@ -16,6 +16,11 @@
   				
   			</div>
   		</div>
+  		<div class="row">
+  			<div class="large-12 columns text-center items-pagination">
+				{{pagination}}
+  			</div>
+  		</div>
   	</div>
   
 
@@ -215,7 +220,6 @@
 		$("#tag-select").change(function(){
 			var origin = $(location).attr('origin')
 			var selected = $(this).val()
-			console.log( $(this).val() )
 			window.location = origin + selected
 		})
 
@@ -237,9 +241,11 @@
 		$("#tag-select option:first").val(emptyTag)
 		$("#category-select option:first").val(emptyCategory)
 
+		// remove page query
+		var pathForSelect = pathQuery.replace(/&page=\d+/, "")
 
-		$("#tag-select").val(pathQuery)
-		$("#category-select").val(pathQuery)
+		$("#tag-select").val(pathForSelect)
+		$("#category-select").val(pathForSelect)
 
 
 
