@@ -436,3 +436,8 @@ input[type="text"] {
 .items-pagination .pagination {
   display: inline-table !important;
 }
+
+.narrative-thumb {
+  width: 90%;
+  max-height: 200px;
+}

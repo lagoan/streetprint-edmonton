@@ -9,7 +9,7 @@
           <div>
             {{narrative.introduction}}
           </div>
-          
+
           {% if narrative.reports.size > 1 %}
           <h3>Reports</h3>
           <div>
@@ -31,16 +31,21 @@
           {% endif %}
 
           <h3>Conclusion <button id="toggle-conclusion" class="button small" >Show</button> </h3>
-          
+
           <div id="narrative-conclusion" hidden="true">
             {{narrative.conclusion}}
           </div>
 
         </div>
-        <div class="medium-3 columns">    
+        <div class="medium-3 columns">
+
+
           {% if narrative.cover_image_thumb != "" %}
-          <div class="cover-image center " style="display: block; width:90%; height:200px; background: url('{{narrative.cover_image_thumb}}');">
-          </div>    
+          <img src="{{narrative.cover_image_thumb}}" class="narrative-thumb">
+          <!-- <div class="cover-image center " style="display: block; width:90%; height:200px; background: url('{{narrative.cover_image_thumb}}');">
+          </div>     -->
+
+
           {% endif %}
           <div>
             {{narrative.introduction | truncatewords: 20}}
@@ -59,17 +64,17 @@
     if (isConclusionHidden) {
       $("#narrative-conclusion").show()
       $("#toggle-conclusion").html("Hide")
-      
+
     } else {
       $("#narrative-conclusion").hide()
       $("#toggle-conclusion").html("Show")
     }
     isConclusionHidden = ! isConclusionHidden;
-    
+
   })
 </script>
 
-<!-- 
+<!--
 <div class="row">
   <h1>{{narrative.name}}</h1>
   <hr>
@@ -106,10 +111,10 @@
     {% endif %}
 
   </div>
-  <div class="medium-3 columns">    
+  <div class="medium-3 columns">
     {% if narrative.cover_image_thumb != "" %}
     <div class="cover-image center " style="display: block; width:90%; height:200px; background: url('{{narrative.cover_image_thumb}}');">
-    </div>    
+    </div>
     {% endif %}
     <div>
       {{narrative.introduction | truncatewords: 20}}
