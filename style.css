@@ -337,8 +337,7 @@ input[type="text"] {
 }
 
 .footer {
-  height: 100px !important;
-  padding: 30px !important;
+  padding: 10px !important;
 }
 
 .cover-image {
