@@ -45,7 +45,7 @@
 					{% if item.images && item.images.first && item.images.first != "" %}
 						{{ item.images.first | image_tag: project, 'thumb' }}
 					{% else %}
-						{{'test.png' | image_tag: project, 'thumb' }}
+						<i class="fa fa-file-image-o" aria-hidden="true"></i>
 					{% endif %}
 					</a>
 				</td>
