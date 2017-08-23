@@ -29,9 +29,11 @@
 			<tr>
 				<th></th>
 				<th>Name</th>
-				<th>Publisher</th>
-				<th>Place of publication</th>
-				<th>Publication date</th>
+				<th>Publication details</th>
+				<th>Language</th>
+				<th>Physical description</th>
+				<th>Price</th>
+				<th>Identifier</th>
 				<th>Categories</th>
 				<th>Tags</th>
 			</tr>
@@ -53,13 +55,19 @@
 					{{ item.name || link_to_show: project, item}}		
 				</td>
 				<td>
-					{{item.custom_data['publisher']}}
-				</td>					
-				<td>		
-					{{item.custom_data['place_of_publication']}}
+					{{item.custom_data['publication_details']}}
 				</td>
 				<td>
-					{{item.custom_data['publication_date']}}
+					{{item.custom_data['language']}}
+				</td>
+				<td>
+					{{item.custom_data['physical_description']}}
+				</td>
+				<td>
+					{{item.custom_data['purchase_price']}}
+				</td>
+				<td>
+					{{item.custom_data['identifier']}}
 				</td>
 				<td>
 					<ul>
