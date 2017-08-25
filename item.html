@@ -58,20 +58,7 @@
           <dt>Notes: </dt>
           <dd>{{item.custom_data["notes"]}}</dd>
         </dl>
-        <!--
-        <ul>
-          <li>
-          
-          <li>
-            Place of publication: {{item.custom_data["place_of_publication"]}}
-          </li>
-          <li>Publisher: {{item.custom_data["publisher"]}}</li>
-          <li>Publication date: {{item.custom_data["publication_date"]}}</li>
-          <li>Language: {{item.custom_data["language"]}}</li>
-          <li>Price: {{item.custom_data["price"]}}</li>
-        
-        </ul>
-        -->
+
         <!-- {{item.custom_data}} -->
         </div>
         <div class="medium-6 column">
@@ -86,24 +73,35 @@
             <dt>More information: </dt>
             <dd>{{item.custom_data["more_information"]}}</dd>
           </dl>
-          <!--
-          <ul>
-            <li>
-              Place of collection: {{item.custom_data["place_of_collection"]}}
-            </li>
-            <li>
-              Collected by: {{item.custom_data["collected_by"]}}
-            </li>
-            <li>
-              Collection date: {{item.custom_data["collection_Date"]}}
-            </li>
-            <li>
-              Collection details: {{item.custom_data["collection_details"]}}
-            </li>
-          </ul>
-        -->
+
         </div>
       </div>
+
+      <div class="row">
+        <div class="medium-6 column">
+          <div>Categories</div>
+          <ul>
+            {% for cat in item.categories %}
+            <li>
+              {% assign cat_path = items_path | append: "?category=" | append: cat.name %}
+                {{ cat.name | link_to: cat_path}}
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="medium-6 column">
+          <div>Tags</div>
+          <ul>
+            {% for tag in item.tags %}
+            <li>
+              {% assign tag_path = items_path | append: "?tag=" | append: tag.name %}
+                {{ tag.name | link_to: tag_path}}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+
 
       {% if item.notes != "" %}
       <div class="row">
