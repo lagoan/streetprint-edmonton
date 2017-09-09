@@ -43,7 +43,8 @@
  
       <div class="row">
         <div class="medium-6 column">
-        <div>Item details</div>
+        <div><b>Item details</b></div>
+        <hr />
         <dl>
           <dt>Publication details: </dt>
           <dd>{{item.custom_data["publication_details"]}}</dd>
@@ -62,7 +63,8 @@
         <!-- {{item.custom_data}} -->
         </div>
         <div class="medium-6 column">
-          <div>Collection details</div>
+          <div><b>Collection details</b></div>
+          <hr />
           <dl>
             <dt>Place of collection: </dt>
             <dd>{{item.custom_data["where"]}}</dd>
@@ -79,7 +81,8 @@
 
       <div class="row">
         <div class="medium-6 column">
-          <div>Categories</div>
+          <div><b>Categories</b></div>
+          <hr />
           <ul>
             {% for cat in item.categories %}
             <li>
@@ -90,7 +93,8 @@
           </ul>
         </div>
         <div class="medium-6 column">
-          <div>Tags</div>
+          <div><b>Tags</b></div>
+          <hr />
           <ul>
             {% for tag in item.tags %}
             <li>
