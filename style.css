@@ -445,3 +445,9 @@ input[type="text"] {
 .orbit {
   background-color: #ddd;
 }
+
+.orbit-container .orbit-slides-container img {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+}

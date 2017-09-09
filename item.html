@@ -5,8 +5,8 @@
 
       {% if item.images.first %}
         <div class="row">
-          <div class="large-4 large-offset-4">
-            <ul class="orbit" style="width:256px;" data-orbit>
+          <div class="large-12">
+            <ul class="orbit" style="width:100% !important;" data-orbit>
               {% for image in item.images %}
               <li>
                 {{image | image_tag: project, "small"}}
