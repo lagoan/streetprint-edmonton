@@ -15,8 +15,11 @@
         </table>
       </div>
       <div class="large-8 medium-7 columns">
-        <h4 id="post-title">{{ posts.first.title }}</h4>
-        <div id="post-body">{{posts.first.body}}</div>
+        <div id="scroller-anchor"></div>
+        <div id="scroller" style="margin-top:10px; width:450px"> 
+          <h4 id="post-title">{{ posts.first.title }}</h4>
+          <div id="post-body">{{posts.first.body}}</div>
+        </div>
       </div>
     {% else %}
       No news has been posted.
@@ -27,11 +30,35 @@
 
   <script>
   $(document).ready(function() {
+    
     $('#news_table tr').click(function (){
       var title = $(this).attr('title')
       var body = $(this).attr('body')
       document.getElementById("post-title").innerHTML = title
       document.getElementById("post-body").innerHTML = body
     });
+
+    // from https://stackoverflow.com/questions/1216114/how-can-i-make-a-div-stick-to-the-top-of-the-screen-once-its-been-scrolled-to
+    var anchor = $("#scroller-anchor");
+    var scroller = $('#scroller');
+
+    var move = function() {
+        var st = $(window).scrollTop() + 100;
+        var ot = anchor.offset().top;
+        if(st > ot) {
+            scroller.css({
+                position: "fixed",
+                top: "95px"
+            });
+        } else {
+            scroller.css({
+                position: "relative",
+                top: ""
+            });
+        }
+    };
+    $(window).scroll(move);
+    move();
+
   });
   </script>
