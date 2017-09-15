@@ -99,8 +99,10 @@
 	  					</div>
 	  				</div>
 	  				<div class="medium-9 columns">
-	  					<div>{{narrative.name}}</div>
-	  					<div class="description-text">{{narrative.description | truncate: 100}}</div>
+	  					<a class="no-text-decoration" href='{{narratives_path | append: "/" | append: narrative.id}}'>
+	  						<div>{{narrative.name}}</div>
+	  						<div class="description-text">{{narrative.description | truncate: 100}}</div>
+	  					</a>
 	  				</div>
 	  			</div>
   			</a>

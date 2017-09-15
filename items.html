@@ -94,69 +94,6 @@
 		</tbody>
 	</table>
 
-
-<!--
-
-  <div class='large-12 columns'>
-		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-5">
-			{% for item in items %}
-				<li class="small-text">
-					<div class="text-center">
-						{% assign item_path = items_path | append: "/" | append: item.id %}
-						<a href="{{item_path}}">
-						{% if item.images && item.images.first && item.images.first != "" %}
-							{{ item.images.first | image_tag: project, 'thumb' }}
-						{% else %}
-							{{'test.png' | image_tag: project, 'thumb' }}
-						{% endif %}
-						</a>
-					</div>
-
-					<div class="text-center">{{item.name | link_to_show: project, item}}</div>
-
-					<ul>
-
-						{% if item.custom_data['publisher'] != "" %}
-						<li>
-							Publisher:
-							{{item.custom_data['publisher']}}
-						</li>
-						{% endif %}
-
-						{% if item.custom_data['place_of_publication'] != "" %}
-						<li>
-							Place of publication:
-							{{item.custom_data['place_of_publication']}}
-						</li>
-						{% endif %}
-
-						{% if item.custom_data['publication_date'] != "" %}
-						<li>
-							Date of publication:
-							{{item.custom_data['publication_date']}}
-						</li>
-						{% endif %}
-
-						{% if item.categories.first %}
-							<li>
-							<div>Categories</div>
-							<ul>
-								{% for cat in item.categories %}
-								<li>
-									{% assign cat_path = items_path | append: "?category=" | append: cat.name %}
-  									{{ cat.name | link_to: cat_path}}
-  								</li>
-								{% endfor %}
-							</ul>
-							</li>
-						{% endif %}
-					</ul>
-				</li>
-			{% endfor %}
-		</ul>
-  </div>
-
--->
 </div>
 
 
@@ -249,9 +186,9 @@
 		$("#tag-select option:first").val(emptyTag)
 		$("#category-select option:first").val(emptyCategory)
 
-		// remove page query
-		var pathForSelect = pathQuery.replace(/&page=\d+/, "")
-
+		// remove letter query
+		var pathForSelect = pathQuery.replace(/&letter=(?:\w|0)+/, "")
+		console.log(pathForSelect)
 		$("#tag-select").val(pathForSelect)
 		$("#category-select").val(pathForSelect)
 
