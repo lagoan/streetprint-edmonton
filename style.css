@@ -368,6 +368,12 @@ input[type="text"] {
   bottom: 0px;
 }
 
+.follow-title {
+  float: left;
+  line-height: 2;
+  margin-right: 10px;
+}
+
 .follow-list {
 }
 
