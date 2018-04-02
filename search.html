@@ -14,7 +14,7 @@
 						{% for result in results %}
 						<tr>
 							<td>
-								{{ result.name || link_to_show: project, result}}		
+								{{ result.name | link_to_show: project, result}}		
 							</td>
 							<td>
 								{{ result.description }}		

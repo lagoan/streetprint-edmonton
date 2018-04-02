@@ -3,7 +3,9 @@
 		<div class="card card-full">
 			<p class="lead">Places</p>
 			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-			{% for place in places %}
+
+			{% assign sorted = places | sort: "name" %}
+			{% for place in sorted %}
 				<li>
 					<a class="" href="{{places_path | append: "/" | append: place.id}}">	
 						<b>{{ place.name }}</b>
