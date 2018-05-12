@@ -465,3 +465,7 @@ input[type="text"] {
 .pagination_link {
   text-transform: capitalize;
 }
+
+.pagination-top {
+  padding-bottom: 20px;
+}

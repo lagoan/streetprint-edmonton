@@ -3,6 +3,9 @@
 	<div class="medium-10 medium-offset-1 column">
 		<div class="card card-full">
 			<p class="lead">People</p>
+			<div class="pagination-container pagination-top">				
+				{{pagination}}
+			</div>	
 			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
 			{% assign sorted = people | sort: "name" %}
 			{% for person in sorted %}
@@ -13,9 +16,6 @@
 				</li>
 			{% endfor %}
 			</ul>
-			<div class="pagination-container">				
-				{{pagination}}
-			</div>	
 		</div>		
 	</div>
 </div>
