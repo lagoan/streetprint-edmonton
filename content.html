@@ -34,6 +34,13 @@ $(function(){
 });
 </script>
 
+<script type="text/javascript">
+  $(function(){
+    var pathUrl = window.location.href.split('?')[0]    
+    var allLinkElement = '<span class="pagination_link"><a href="'+pathUrl+'">All</a></span>'
+    $(".pagination-container > div").prepend(allLinkElement)
+  })
+</script>
 
 
 <div class="fixed">
