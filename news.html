@@ -6,7 +6,7 @@
       <div class="large-4 medium-5 columns" style="padding-left:0px;">
         <table width="100%" class="table-select" id="news_table">
           <tbody class="centered">
-            {% for post in posts %}
+            {% for post in posts_all %}
               <tr id="{{ post.id }}" title="{{ post.title }}" body="{{ post.body }}">
                 <td><strong>{{ post.title }}</strong><br/>{{ post.publish_at }}</td>
               </tr>

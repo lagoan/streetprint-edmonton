@@ -338,6 +338,8 @@ input[type="text"] {
 
 .footer {
   padding: 10px !important;
+  height: 190px !important;
+  background-color: #FFFFFF !important;
 }
 
 .cover-image {
@@ -468,4 +470,8 @@ input[type="text"] {
 
 .pagination-top {
   padding-bottom: 20px;
+}
+
+.footer-image {
+  height: 30px;
 }

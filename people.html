@@ -6,9 +6,8 @@
 			<div class="pagination-container pagination-top">				
 				{{pagination}}
 			</div>	
-			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">
-			{% assign sorted = people | sort: "name" %}
-			{% for person in sorted %}
+			<ul class="small-block-grid-1 medium-block-grid-2 large-block-grid-4">			
+			{% for person in people_last %}
 				<li>
 					<a class="" href="{{people_path | append: "/" | append: person.id}}">	
 						<b>{{ person.name }}</b>
